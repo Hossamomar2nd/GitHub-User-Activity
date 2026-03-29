@@ -1,40 +1,58 @@
 # GitHub Activity CLI
 
-A [Github-Activity-CLI](https://roadmap.sh/projects/github-user-activity) simple Command Line Interface (CLI) tool that fetches and displays the recent activity of a GitHub user using the GitHub API. This project helps you practice working with APIs, handling JSON data, and building CLI applications.
-
-## Features
-- Fetch the recent activity of a specified GitHub user.
-- Display activities like pushes, issues, and stars in the terminal.
-- Handle errors gracefully, such as invalid usernames or API failures.
+`github-activity-cli` is a command line tool that fetches and displays the recent public activity of a GitHub user through the GitHub Events API.
 
 ## Requirements
-- Node.js (v14 or later recommended)
 
-## Installation
+- Node.js `18+`
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/github-activity-cli.git
-## Contributing
+## Install
 
-Contributions are welcome! If you have suggestions, improvements, or bug fixes, please open a Pull Request on the GitHub repository. Follow these steps:
+```bash
+git clone https://github.com/your-username/github-activity-cli.git
+cd github-activity-cli
+npm install
+```
 
-1. **Fork the repository**.
+## Usage
 
-2. **Create a new branch for your feature or bug fix**:
+```bash
+npm start -- <username>
+```
 
-   ```bash
-   git checkout -b feature-name
-   ```
+Examples:
 
-3. **Commit your changes** with clear, descriptive messages.
+```bash
+npm start -- octocat
+npm start -- octocat --limit 5
+npm start -- octocat --json
+```
 
-4. **Push to your forked repository**:
+You can also run it directly:
 
-   ```bash
-   git push origin feature-name
-   ```
+```bash
+node github-activity.js octocat --limit 3
+```
 
-5. **Open a Pull Request** on the original repository, describing your changes.
+## Options
 
-Thank you for contributing!
+- `-l, --limit <number>`: limit displayed events (default `10`)
+- `--json`: print raw event JSON
+- `-h, --help`: show help
+
+## Features
+
+- Improved event formatting for common GitHub event types.
+- Better error handling for invalid usernames, API failures, and malformed responses.
+- JSON output mode for scripting and automation.
+- Automated tests for CLI argument parsing and output formatting.
+
+## Test
+
+```bash
+npm test
+```
+
+## Project Link
+
+- [roadmap.sh GitHub User Activity](https://roadmap.sh/projects/github-user-activity)
